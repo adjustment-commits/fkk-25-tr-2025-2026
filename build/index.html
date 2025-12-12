@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>強化期トレーニング — 社会人硬式27歳パワーヒッター</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a7">
+<link rel="apple-touch-icon" sizes="192x192" href="img/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="img/icon-512.png">
+<link rel="apple-touch-startup-image" href="img/splash-2048x2732.png"
+  media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+<style>
+:root{
+  --ink:#111;
+  --muted:#666;
+  --line:#ddd;
+  --bg:#f5f7f8;
+  --accent:#0a7;
+  --card:#fff;
+  --danger:#e45757;
+}
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"SF Pro Text","Noto Sans JP",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  text-rendering:optimizeLegibility;
+}
+
+/* header */
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1120px;
+  margin:0 auto;
+  padding:10px 16px 12px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.title-block{
+  min-width:0;
+}
+h1{
+  margin:0 0 4px;
+  font-size:18px;
+  font-weight:600;
+}
+.sub{
+  margin:0;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.old-link{
+  font-size:11px;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px solid var(--line);
+  padding:4px 8px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+.old-link span{
+  color:var(--accent);
+  font-weight:600;
+}
+
+/* tabs */
+.tabs{
+  max-width:1120px;
+  margin:0 auto;
+  padding:8px 16px 10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.tab{
+  border-radius:999px;
+  border:1px solid var(--line);
+  padding:6px 10px;
+  background:#fff;
+  font-size:12px;
+  cursor:pointer;
+  color:var(--muted);
+}
+.tab.active{
+  border-color:var(--accent);
+  background:var(--accent);
+  color:#fff;
+}
+
+/* main layout */
+main{
+  max-width:1120px;
+  margin:0 auto 32px;
+  padding:0 16px 24px;
+}
+section{
+  background:var(--card);
+  border-radius:12px;
+  border:1px solid var(--line);
+  padding:14px 14px 10px;
+  margin-top:12px;
+}
+section h2{
+  margin:0 0 8px;
+  font-size:15px;
+}
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:6px;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:3px 8px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  font-size:11px;
+  color:var(--muted);
+  background:#fff;
+}
+.chip strong{
+  font-weight:600;
+  color:var(--ink);
+}
+.chip-accent{
+  border-color:rgba(0,170,119,0.18);
+  background:rgba(0,170,119,0.03);
+}
+
+/* exercise cards */
+.ex-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.ex{
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:#fafafa;
+  padding:8px 10px;
+}
+.ex-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:6px;
+  margin-bottom:4px;
+}
+.ex-name{
+  font-size:13px;
+  font-weight:600;
+  color:var(--accent);
+}
+.ex-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+}
+.tag{
+  font-size:10px;
+  padding:2px 6px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.08);
+  color:var(--muted);
+}
+.tag-danger{
+  border-color:rgba(228,87,87,0.35);
+  color:var(--danger);
+}
+.ex-meta{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:3px;
+}
+.ex-desc{
+  margin:0;
+  font-size:11px;
+  line-height:1.7;
+}
+.btn{
+  border-radius:999px;
+  border:1px solid var(--line);
+  padding:4px 8px;
+  font-size:10px;
+  background:#fff;
+  color:var(--muted);
+  cursor:pointer;
+}
+.btn-ill{
+  white-space:nowrap;
+}
+
+/* conditioning block */
+.cond-main{
+  font-size:12px;
+  margin:0 0 4px;
+}
+.cond-detail{
+  font-size:11px;
+  color:var(--muted);
+  margin:0;
+  line-height:1.7;
+}
+
+/* modal */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+}
+.modal.open{
+  display:flex;
+}
+.modal-card{
+  width:min(92vw,760px);
+  border-radius:12px;
+  background:#fff;
+  padding:10px 10px 12px;
+  box-shadow:0 16px 40px rgba(0,0,0,0.32);
+}
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+}
+.modal-title{
+  font-size:14px;
+  font-weight:600;
+}
+.modal-body{
+  min-height:120px;
+}
+.modal-body img{
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+.placeholder{
+  border-radius:8px;
+  border:1px dashed var(--line);
+  background:#fafafa;
+  padding:32px 16px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width:640px){
+  .header-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .old-link{
+    align-self:flex-end;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="title-block">
+      <h1>強化期トレーニングプログラム</h1>
+      <p class="sub">
+        週2ムーブメント（自走式）＋週4ウエイト（電動式）＋晴天時ロードワーク。<br>
+        BLAST目安：バットスピード約110km/h／手の最大スピード約37.5km/h／オンプレーン効率70％。
+      </p>
+    </div>
+    <a class="old-link" href="intro-phase.html" target="_blank" rel="noopener">
+      旧プログラム：<span>導入期（10–12月）</span>
+    </a>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+<main id="content"></main>
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">エクササイズ画像</div>
+      <button class="btn" id="modalClose">閉じる</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+<script>
+/* --------------------------------------------------
+   プログラム定義
+   type:
+     "movement" = ムーブメント系＋自走式
+     "weight"   = ウエイト系＋電動式
+     "road"     = ロードワーク
+-------------------------------------------------- */
+const PROGRAM = [
+  {
+    id:"day1",
+    title:"Day1｜ムーブメントA（下肢主導＋足底）",
+    type:"movement",
+    goal:"骨盤と脚の分離を足底から作り直し、下肢の滑走感を出す。",
+    place:"室内トレーニングエリア／自走式トレッドミル",
+    focus:["足底トライポッド","骨盤と大腿の分離","脊柱リズム"],
+    warmup:[
+      {
+        name:"仰臥位・骨盤前後傾ストレッチ",
+        sets:"2",
+        reps:"各方向8〜10回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"背骨は長く保ち、みぞおちから下だけを動かすイメージ。腰で反らず、骨盤をバケツのように前後に倒す。",
+        img:"img/d1-01-pelvic-tilt.jpg"
+      },
+      {
+        name:"横向き・股関節内外旋ロール",
+        sets:"2",
+        reps:"各8回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"骨盤を床と平行に保ったまま、大腿骨だけを内外旋。足先ではなく太ももの付け根を動かす意識。",
+        img:"img/d1-02-hip-rotation.jpg"
+      },
+      {
+        name:"四つ這い・キャット＆テイル（腰椎分離）",
+        sets:"2",
+        reps:"8往復",
+        load:"自重",
+        level:"★☆☆",
+        cue:"胸郭は大きく動かさず、腰椎〜骨盤まわりだけを丸める／反らす。呼気で丸め、吸気で戻る。",
+        img:"img/d1-03-cat-tail.jpg"
+      },
+      {
+        name:"片膝立ち・骨盤ロッキング（前後＋側方）",
+        sets:"2",
+        reps:"各方向8回",
+        load:"自重",
+        level:"★★☆",
+        cue:"前脚の足底を強く感じながら、骨盤を前後／左右に小さく揺らす。上半身はできるだけ静かに保つ。",
+        img:"img/d1-04-halfkneel-rock.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"片膝立ち・ローテーション・リーチ",
+        sets:"3",
+        reps:"各側8回",
+        load:"MB1〜2kg／プレート5kg",
+        level:"★★☆",
+        cue:"骨盤は正対のまま固定し、胸郭だけを回旋して前方へリーチ。前脚内側の張りと、みぞおち周りのねじれを感じる。",
+        img:"img/d1-11-halfkneel-reach.jpg"
+      },
+      {
+        name:"足底フォーカス・スプリットスクワット",
+        sets:"3",
+        reps:"各脚6〜8回",
+        load:"自重〜ダンベル各10〜20kg（RPE7）",
+        level:"★★☆",
+        cue:"前脚は母指球・小趾球・踵の3点で床を捉えたまま。膝はつま先のやや内側を通る。骨盤を真下に落とし、前脚で押し上げる。",
+        img:"img/d1-12-split-sq.jpg"
+      },
+      {
+        name:"HEXバー・デッドリフト（ハイハンドル）",
+        sets:"3",
+        reps:"5回",
+        load:"60〜70％1RM（RPE7前後）",
+        level:"★★★",
+        cue:"股関節を後ろへ引き、脛を垂直に近づける。立ち上がる時は足底全体で床を押し、骨盤を前に滑らせるように伸展。",
+        img:"img/d1-13-hex-hinge.jpg"
+      },
+      {
+        name:"スライドボード・ラテラルランジリターン",
+        sets:"3",
+        reps:"各側6回",
+        load:"自重〜プレート5kg",
+        level:"★★☆",
+        cue:"支持脚の股関節を深く折り、胸をやや前傾。滑らせる脚は力を抜いてスライドし、戻りで内転筋の張りを感じる。",
+        img:"img/d1-14-sb-lat-lunge.jpg"
+      },
+      {
+        name:"足底意識カーフレイズ（トライポッド）",
+        sets:"3",
+        reps:"12〜15回",
+        load:"自重〜バーベル60〜80kg（RPE7）",
+        level:"★★☆",
+        cue:"母指球と小趾球を軽く握るように床を押し、踵をゆっくり持ち上げる。トップで一瞬静止し、静かに下ろす。",
+        img:"img/d1-15-tripod-calf.jpg"
+      },
+      {
+        name:"片脚ミニホップ（前後）",
+        sets:"3",
+        reps:"各脚10着地",
+        load:"自重",
+        level:"★★☆",
+        cue:"接地は足音を最小限に。膝を突っ張らず、股関節でクッションを使う。上体は軽く前傾し、骨盤の滑走感を意識。",
+        img:"img/d1-16-mini-hop.jpg"
+      }
+    ],
+    conditioning:{
+      name:"自走式トレッドミル・スプリント",
+      main:"15秒全力走 × 5セット（RPE9〜10）",
+      detail:"各セット後はHRが約130bpmまで下がるまでウォーク。フォームは“骨盤ごと前に滑らせる”意識で、上半身はリラックス。"
+    }
+  },
+
+  {
+    id:"day2",
+    title:"Day2｜上半身ウエイト①（押し引き）＋電動式",
+    type:"weight",
+    goal:"上半身の出力維持と肩甲帯の安定。バットスピード110km/hを支える押し引きの土台作り。",
+    place:"ジム（バーベル／ダンベル）＋電動式トレッドミル",
+    focus:["ベンチ系プレス","プル系での肩甲骨制御","胸郭−肩甲帯の分離"],
+    warmup:[
+      {
+        name:"仰臥位・リブケージブリージング",
+        sets:"2",
+        reps:"5〜6呼吸",
+        load:"自重",
+        level:"★☆☆",
+        cue:"鼻から吸って肋骨を360度に膨らませ、口から細く長く吐き切る。肋骨が“締まる”感覚を作る。",
+        img:"img/d2-01-rib-breath.jpg"
+      },
+      {
+        name:"四つ這い・スキャプラプッシュアップ",
+        sets:"2",
+        reps:"10回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"肘は伸ばしたまま、肩甲骨だけを前後にスライド。胸を床に落とし過ぎないように注意。",
+        img:"img/d2-02-scap-pu.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"ベンチプレス",
+        sets:"4",
+        reps:"4回",
+        load:"75〜80％1RM（RPE7〜8）",
+        level:"★★★",
+        cue:"肩甲骨を寄せて下制し、胸のやや下側にバーを下ろす。足底でしっかり床を押し、骨盤〜胸郭でアーチを支える。",
+        img:"img/d2-11-bench.jpg"
+      },
+      {
+        name:"プルアップ／ラットプルダウン",
+        sets:"4",
+        reps:"6〜8回",
+        load:"自重＋加重または体重の70〜90％",
+        level:"★★★",
+        cue:"胸を前に突き出し過ぎない。最初に肩甲骨を下制し、その後で肘を引く。顎をバーに“当てにいかない”。",
+        img:"img/d2-12-pullup.jpg"
+      },
+      {
+        name:"インクラインダンベルプレス",
+        sets:"3",
+        reps:"8回",
+        load:"およそ1RMの65〜70％（RPE7）",
+        level:"★★☆",
+        cue:"肘は肩よりやや下のラインを通す。トップで肩をすくめず、胸郭の前凸を抑えたまま押し切る。",
+        img:"img/d2-13-incline-db.jpg"
+      },
+      {
+        name:"ワンアーム・ダンベルロウ",
+        sets:"3",
+        reps:"各腕10回",
+        load:"ダンベル30〜45kg（RPE7）",
+        level:"★★☆",
+        cue:"骨盤と肋骨を固定し、腕ではなく背中で引く。ダンベルは腰骨の方向へ斜め後ろに引き、下ろす時もコントロール。",
+        img:"img/d2-14-1arm-row.jpg"
+      },
+      {
+        name:"ケーブル／バンド・ローテーションプレス",
+        sets:"3",
+        reps:"各側8回",
+        load:"RPE7（体幹が負けない負荷）",
+        level:"★★☆",
+        cue:"骨盤は正対のまま、胸郭だけを軽く回旋してからプレス。“骨盤で壁を押さえ、胸でドアを開ける”感覚。",
+        img:"img/d2-15-rot-press.jpg"
+      }
+    ],
+    conditioning:{
+      name:"電動式トレッドミル・テンポ走",
+      main:"30秒やや速め（試合時70％速度）＋30秒ウォーク × 10本",
+      detail:"HRは150〜170bpmを目安。上半身はリラックスさせ、腕振りは“バットスイングのプレーン”に近い角度をイメージ。"
+    }
+  },
+
+  {
+    id:"day3",
+    title:"Day3｜ムーブメントB（回旋＋上肢連動）",
+    type:"movement",
+    goal:"骨盤・脊柱・肩甲帯の三層分離と再統合。ノア・ライルズ的な滑走感を打撃へ橋渡し。",
+    place:"室内トレーニングエリア／自走式トレッドミル",
+    focus:["回旋分離","胸郭−肩甲帯のスライド","遊脚側の外旋ドライブ"],
+    warmup:[
+      {
+        name:"腹臥位・スイマー（肩甲帯モビリティ）",
+        sets:"2",
+        reps:"6〜8回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"胸を少しだけ浮かせ、腕を大きく円を描くように回す。肩甲骨が肋骨の上を滑る感覚を意識。",
+        img:"img/d3-01-swimmer.jpg"
+      },
+      {
+        name:"立位・骨盤先行ローテーションドリル",
+        sets:"2",
+        reps:"各方向8回",
+        load:"自重",
+        level:"★★☆",
+        cue:"足底を固定したまま、骨盤だけを数度先に回し、その後に胸郭を追従させる。腕は胸前でクロスしておく。",
+        img:"img/d3-02-pelvic-lead.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"スプリットスタンス・メディシンボールショット（壁投げ）",
+        sets:"3",
+        reps:"各側6回",
+        load:"MB2〜3kg",
+        level:"★★☆",
+        cue:"後脚の股関節で床を押し、骨盤を先に回してから胸と腕を振る。腰から順に“ねじれの波”を壁へ伝える。",
+        img:"img/d3-11-mb-shot.jpg"
+      },
+      {
+        name:"スプリットスタンス・ケーブルローテーション",
+        sets:"3",
+        reps:"各側8回",
+        load:"RPE7（骨盤がブレない負荷）",
+        level:"★★☆",
+        cue:"骨盤は軽く先行させるが、前脚の膝は内側に崩さない。胸郭の回旋でケーブルを引き切る。",
+        img:"img/d3-12-split-rot.jpg"
+      },
+      {
+        name:"片脚スタンス・スプリットリーチ（上肢リーチ）",
+        sets:"3",
+        reps:"各側6回",
+        load:"自重〜プレート5kg",
+        level:"★★☆",
+        cue:"股関節で立ち、片脚支持で反対腕を前方へリーチ。骨盤は正対を保ち、胸郭だけ前へ伸びる。",
+        img:"img/d3-13-1leg-reach.jpg"
+      },
+      {
+        name:"レッドコード・ツイストプランク",
+        sets:"3",
+        reps:"各側20秒",
+        load:"自重",
+        level:"★★★",
+        cue:"足をストラップにかけ、前腕プランク姿勢から骨盤を左右に小さく振る。肋骨は締めて腰を反らさない。",
+        img:"img/d3-14-rc-twist.jpg"
+      },
+      {
+        name:"足底フォーカス・サイドシャッフル＆スティック",
+        sets:"3",
+        reps:"4往復（約10〜15m）",
+        load:"自重",
+        level:"★★☆",
+        cue:"横移動の最後でピタッと止まり、足底トライポッドと股関節の“はまり”を確認。上半身はリラックス。",
+        img:"img/d3-15-shuffle-stick.jpg"
+      }
+    ],
+    conditioning:{
+      name:"自走式トレッドミル・滑走インターバル",
+      main:"20秒ビルドアップ走 × 6本（前半10秒で加速／後半10秒でフォーム維持）",
+      detail:"各本の間は90〜120秒ウォーク。遊脚脚をわずかに外旋させ、骨盤が前方に滑り続ける感覚を意識。"
+    }
+  },
+
+  {
+    id:"day4",
+    title:"Day4｜下半身ウエイト（MAX寄り）＋電動式",
+    type:"weight",
+    goal:"スクワット・デッドリフト系の出力維持と、骨盤滑走を伴う伸展パワー強化。",
+    place:"ジム（バーベル／HEXバー）＋電動式トレッドミル",
+    focus:["スクワット","ヒップヒンジ","片脚安定"],
+    warmup:[
+      {
+        name:"四つ這い・ヒップサークル",
+        sets:"2",
+        reps:"各脚8回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"腰が大きく揺れない範囲で股関節だけを大きく回す。前半は小さく、だんだん円を大きくしていく。",
+        img:"img/d4-01-hip-circle.jpg"
+      },
+      {
+        name:"立位・アンクルロッカー＋足底チェック",
+        sets:"2",
+        reps:"各脚10回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"母指球・小趾球・踵の3点で床を捉えたまま、膝を前に送る。踵が浮かないギリギリのところでストップ。",
+        img:"img/d4-02-ankle-rocker.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"バックスクワット",
+        sets:"5",
+        reps:"3回",
+        load:"80〜85％1RM（RPE8〜8.5）",
+        level:"★★★",
+        cue:"下降は2秒、ボトムで1秒静止してから爆発的に立ち上がる。立ち上がりで骨盤が先に前へ滑り、胸はやや遅れてついてくる感覚。",
+        img:"img/d4-11-back-sq.jpg"
+      },
+      {
+        name:"RDL（ルーマニアンデッドリフト）",
+        sets:"4",
+        reps:"6回",
+        load:"70〜75％1RM（RPE7〜8）",
+        level:"★★★",
+        cue:"膝の角度はほぼ固定。ハムストリングの伸張感を感じたところでストップし、骨盤を前へ送り戻す。",
+        img:"img/d4-12-rdl.jpg"
+      },
+      {
+        name:"HEXバー・デッドリフト（ロー・ハンドル）",
+        sets:"3",
+        reps:"4回",
+        load:"75〜85％1RM（RPE8）",
+        level:"★★★",
+        cue:"スタート姿勢で背中を固めすぎず、股関節に余白を残す。立ち上がりで“地面を後ろに蹴る”イメージで骨盤を前へ。",
+        img:"img/d4-13-hex-low.jpg"
+      },
+      {
+        name:"フロントフットエレベーテッド・スプリットスクワット",
+        sets:"3",
+        reps:"各脚6〜8回",
+        load:"ダンベル各15〜25kg（RPE7）",
+        level:"★★☆",
+        cue:"前脚の足底で床をつかみ、膝を前に送る。股関節がしっかり屈曲した位置から、前脚で床を押して立ち上がる。",
+        img:"img/d4-14-ffess.jpg"
+      },
+      {
+        name:"スライドボード・クロスバックランジ",
+        sets:"3",
+        reps:"各脚8回",
+        load:"自重〜プレート5kg",
+        level:"★★☆",
+        cue:"支持脚の股関節を深く折り、滑らせる脚は後方斜めにクロス。骨盤が流れすぎない範囲でお尻の張りを感じる。",
+        img:"img/d4-15-sb-cross.jpg"
+      }
+    ],
+    conditioning:{
+      name:"電動式トレッドミル・レピティション走",
+      main:"20秒速め＋40秒ウォーク × 8本（HR170前後）",
+      detail:"スプリントではなく“長い一塁到達”イメージ。ピッチは抑え、1歩あたりの接地時間を短くする。"
+    }
+  },
+
+  {
+    id:"day5",
+    title:"Day5｜全身パワーウエイト＋電動式",
+    type:"weight",
+    goal:"バットスピードと体幹トルクの橋渡しとなる全身パワー強化。",
+    place:"ジム＋電動式トレッドミル",
+    focus:["オリンピックリフト系","ローテーションパワー","体幹剛性"],
+    warmup:[
+      {
+        name:"ハングポジション・ジャンプシュラッグ",
+        sets:"2",
+        reps:"5回",
+        load:"バーベル40〜60kg",
+        level:"★★☆",
+        cue:"膝と股関節を素早く伸ばしながらバーベルを縦方向に加速。腕は引き上げようとせず、バーに“ぶら下がる”だけ。",
+        img:"img/d5-01-jump-shrug.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"ハングクリーン（膝上スタート）",
+        sets:"5",
+        reps:"3回",
+        load:"1RMの65〜75％（RPE7〜8）",
+        level:"★★★",
+        cue:"第2引きで床を強く押し、骨盤を前に滑らせながら全身を伸ばす。キャッチは深くしゃがみ込み過ぎず、素早く受け止める。",
+        img:"img/d5-11-hang-clean.jpg"
+      },
+      {
+        name:"フロントスクワット",
+        sets:"4",
+        reps:"4回",
+        load:"70〜80％1RM（RPE7〜8）",
+        level:"★★★",
+        cue:"肘を高く保ち、胸郭をつぶさない。下降2秒→ボトムで一瞬止めてから爆発的に立ち上がる。",
+        img:"img/d5-12-front-sq.jpg"
+      },
+      {
+        name:"ベントオーバーロウ",
+        sets:"4",
+        reps:"6回",
+        load:"70〜75％1RM（RPE7〜8）",
+        level:"★★★",
+        cue:"股関節ヒンジ姿勢を保ったまま、バーベルをへそ付近へ引く。胸を張り過ぎず、肋骨を締めたまま上背部で引く。",
+        img:"img/d5-13-bent-row.jpg"
+      },
+      {
+        name:"ローテーショナルMBスラム（横振り）",
+        sets:"4",
+        reps:"各側6回",
+        load:"MB2〜3kg",
+        level:"★★☆",
+        cue:"骨盤を素早く先行させ、遅れて胸と腕が回転する。打撃のインパクト前後をイメージして床へ叩きつける。",
+        img:"img/d5-14-rot-slam.jpg"
+      },
+      {
+        name:"パロフプレス＋ウォークアウト",
+        sets:"3",
+        reps:"各側20秒保持＋4歩",
+        load:"バンド中強度",
+        level:"★★☆",
+        cue:"胸郭と骨盤を正対させたまま前進。押し出した手がぶれない強度でバンドを選択。",
+        img:"img/d5-15-pallof-walk.jpg"
+      }
+    ],
+    conditioning:{
+      name:"電動式トレッドミル・持久走（中強度）",
+      main:"8〜10分 × 2本（HR150〜160bpm、RPE6〜7）",
+      detail:"ピッチよりストライド重視。上半身のブレを抑え、骨盤の前後スライドを感じながら“長く走れるフォーム”を探す。"
+    }
+  },
+
+  {
+    id:"day6",
+    title:"Day6｜予備ウエイト（弱点補強DAY）＋電動式",
+    type:"weight",
+    goal:"臀筋・ハム・肩甲帯の弱点補強と左右差の修正。疲労状況に応じてボリューム調整。",
+    place:"ジム＋電動式トレッドミル",
+    focus:["ハムストリング","臀筋","肩甲帯スタビリティ"],
+    warmup:[
+      {
+        name:"ブリッジ＋ハムスライド（スライドボード／タオル）",
+        sets:"2",
+        reps:"10回",
+        load:"自重",
+        level:"★☆☆",
+        cue:"骨盤をニュートラルに保ち、踵で軽く床を押しながら膝を伸ばす／曲げる。腰を反らさない。",
+        img:"img/d6-01-ham-slide.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"ノルディックハムカール（補助あり）",
+        sets:"3",
+        reps:"4〜6回",
+        load:"自重（必要に応じて手で補助）",
+        level:"★★★",
+        cue:"膝から上体まで一直線を保ったまま、できる範囲でゆっくり前に倒れる。限界で手をついて受け身をとり、素早く押し戻る。",
+        img:"img/d6-11-nordic.jpg"
+      },
+      {
+        name:"ヒップスラスト（軽〜中負荷ボリューム）",
+        sets:"3",
+        reps:"10〜12回",
+        load:"60〜70％1RM（RPE7）",
+        level:"★★☆",
+        cue:"肩甲骨をベンチに乗せ、骨盤後傾を保ったままお尻を締める。トップで1秒静止してから下ろす。",
+        img:"img/d6-12-hipthrust.jpg"
+      },
+      {
+        name:"サイドライイング・ヒップアブダクション",
+        sets:"3",
+        reps:"各脚15回",
+        load:"ループバンド軽〜中",
+        level:"★☆☆",
+        cue:"骨盤をわずかに前傾させ、つま先を少し下向きにして脚を上げる。中殿筋の焼けるような張りを狙う。",
+        img:"img/d6-13-side-abd.jpg"
+      },
+      {
+        name:"インバーテッドロウ（バー／レッドコード）",
+        sets:"3",
+        reps:"8〜12回",
+        load:"自重（足位置で強度調整）",
+        level:"★★☆",
+        cue:"体を一直線に保ち、胸をバーに近づける。肩をすくめず、肩甲骨を背骨に寄せる感覚で引く。",
+        img:"img/d6-14-inv-row.jpg"
+      },
+      {
+        name:"フェイスプル＋エクスターナルローテーション",
+        sets:"3",
+        reps:"12回",
+        load:"ケーブル／バンド軽〜中",
+        level:"★★☆",
+        cue:"肘を肩よりやや下に保ち、耳の横へ引く。最後に軽く外旋を加えて、肩前面ではなく後面の張りを感じる。",
+        img:"img/d6-15-facepull.jpg"
+      }
+    ],
+    conditioning:{
+      name:"電動式トレッドミル・リカバリー走",
+      main:"5分ジョグ（HR130〜140）＋5分ウォーク",
+      detail:"1週間の疲労を抜く目的。呼吸と足音を静かに保ち、フォームのチェック時間として使う。"
+    }
+  },
+
+  {
+    id:"outdoor",
+    title:"OUTDOOR｜晴天時ロードワーク（500mコース）",
+    type:"road",
+    goal:"無酸素優位の選手が“頭痛・イライラ”まで行かずに追い込める心肺メニュー。",
+    place:"500m周回路／河川敷など",
+    focus:["VO2max向上","ランニングエコノミー","メンタルコントロール"],
+    warmup:[
+      {
+        name:"ジョグ＋モビリティ",
+        sets:"1",
+        reps:"ジョグ5分＋動的ストレッチ5分",
+        load:"自重",
+        level:"★☆☆",
+        cue:"ゆっくりジョグで体温を上げ、股関節・足首・胸郭を中心に動的ストレッチ。息が弾む手前まで。",
+        img:"img/out-01-warmup.jpg"
+      }
+    ],
+    drills:[
+      {
+        name:"メインA：500mレペティション",
+        sets:"4〜6本",
+        reps:"1本あたり500m",
+        load:"目標タイム 1分50秒〜2分00秒（RPE7）",
+        level:"★★☆",
+        cue:"1〜2本目は余裕を残して入り、3本目以降で少しだけペースアップ。HR180近くで“頭が熱くなる一歩手前”までに抑える。",
+        img:"img/out-11-500m.jpg"
+      },
+      {
+        name:"メインB：50mストライド",
+        sets:"8〜10本",
+        reps:"1本あたり50m",
+        load:"最大スピードの70〜80％",
+        level:"★★☆",
+        cue:"スタートはリラックスして加速し、30〜40m付近で滑走感のあるフォームを確認。完全ダッシュにはしない。",
+        img:"img/out-12-stride.jpg"
+      },
+      {
+        name:"オプション：800m×3（試合前コンディション）",
+        sets:"3本",
+        reps:"1本あたり800m",
+        load:"目標タイム 3分00秒前後（RPE6〜7）",
+        level:"★★☆",
+        cue:"フォーム維持を最優先。HRは170前後まで。追い込みすぎて頭痛が出る手前で止めること。",
+        img:"img/out-13-800m.jpg"
+      }
+    ],
+    conditioning:{
+      name:"クールダウン",
+      main:"ジョグ3〜5分＋ウォーク3分＋ストレッチ5分",
+      detail:"呼吸を整えながら、ふくらはぎ・ハムストリング・股関節前面を重点的にストレッチ。HRが120以下になったところで終了。"
+    }
+  }
+];
+
+/* --------------------------------------------------
+   タブ生成と描画
+-------------------------------------------------- */
+const tabsEl = document.getElementById("tabs");
+const contentEl = document.getElementById("content");
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalBody = document.getElementById("modalBody");
+const modalClose = document.getElementById("modalClose");
+
+PROGRAM.forEach((day, idx)=>{
+  const btn = document.createElement("button");
+  btn.className = "tab" + (idx===0 ? " active" : "");
+  btn.textContent = day.title.split("｜")[0];
+  btn.dataset.id = day.id;
+  btn.addEventListener("click", ()=>switchDay(day.id));
+  tabsEl.appendChild(btn);
+});
+
+function switchDay(id){
+  [...tabsEl.children].forEach(tab=>{
+    tab.classList.toggle("active", tab.dataset.id === id);
+  });
+  const day = PROGRAM.find(d=>d.id===id);
+  renderDay(day);
+}
+
+function renderDay(day){
+  if(!day) return;
+  contentEl.innerHTML = "";
+
+  const headSec = document.createElement("section");
+  const metaChips = `
+    <div class="meta-row">
+      <div class="chip chip-accent"><strong>タイプ</strong>：${labelType(day.type)}</div>
+      <div class="chip"><strong>場所</strong>：${day.place}</div>
+      <div class="chip"><strong>主な目的</strong>：${day.goal}</div>
+    </div>
+    <div class="meta-row">
+      ${day.focus.map(f=>`<div class="chip">${f}</div>`).join("")}
+    </div>
+  `;
+  headSec.innerHTML = `<h2>${day.title}</h2>${metaChips}`;
+  contentEl.appendChild(headSec);
+
+  if(day.warmup && day.warmup.length){
+    contentEl.appendChild(buildExerciseSection("ウォームアップ", day.warmup));
+  }
+  if(day.drills && day.drills.length){
+    contentEl.appendChild(buildExerciseSection("メインエクササイズ", day.drills));
+  }
+  if(day.conditioning){
+    const condSec = document.createElement("section");
+    condSec.innerHTML = `
+      <h2>${day.type==="road" ? "メイン／クールダウン" : "コンディショニング（走／有酸素）"}</h2>
+      <p class="cond-main">${day.conditioning.name}：${day.conditioning.main}</p>
+      <p class="cond-detail">${day.conditioning.detail}</p>
+    `;
+    contentEl.appendChild(condSec);
+  }
+}
+
+function buildExerciseSection(title, list){
+  const sec = document.createElement("section");
+  sec.innerHTML = `<h2>${title}</h2>`;
+  const wrap = document.createElement("div");
+  wrap.className = "ex-list";
+
+  list.forEach(ex=>{
+    const card = document.createElement("article");
+    card.className = "ex";
+
+    const head = document.createElement("div");
+    head.className = "ex-head";
+
+    const nameSpan = document.createElement("div");
+    nameSpan.className = "ex-name";
+    nameSpan.textContent = ex.name;
+    head.appendChild(nameSpan);
+
+    const tags = document.createElement("div");
+    tags.className = "ex-tags";
+    if(ex.level){
+      const t = document.createElement("span");
+      t.className = "tag";
+      t.textContent = `難易度：${ex.level}`;
+      tags.appendChild(t);
+    }
+    const btn = document.createElement("button");
+    btn.className = "btn btn-ill";
+    btn.textContent = "🖼 イラスト";
+    btn.dataset.name = ex.name;
+    btn.dataset.img = ex.img || "";
+    tags.appendChild(btn);
+
+    head.appendChild(tags);
+    card.appendChild(head);
+
+    const meta = document.createElement("div");
+    meta.className = "ex-meta";
+    meta.textContent =
+      `セット：${ex.sets} ／ 回数・時間：${ex.reps} ／ 負荷目安：${ex.load}`;
+    card.appendChild(meta);
+
+    const desc = document.createElement("p");
+    desc.className = "ex-desc";
+    desc.textContent = ex.cue;
+    card.appendChild(desc);
+
+    wrap.appendChild(card);
+  });
+
+  sec.appendChild(wrap);
+  return sec;
+}
+
+function labelType(type){
+  if(type==="movement") return "ムーブメント＋自走式";
+  if(type==="weight") return "ウエイト＋電動式";
+  if(type==="road") return "ロードワーク";
+  return "未設定";
+}
+
+/* --------------------------------------------------
+   モーダル（画像プレースホルダ）
+-------------------------------------------------- */
+function openModal(title, src){
+  modalTitle.textContent = title;
+  modalBody.innerHTML = "";
+  if(src){
+    const img = new Image();
+    img.alt = title;
+    img.onload = function(){
+      modalBody.innerHTML = "";
+      modalBody.appendChild(img);
+    };
+    img.onerror = function(){
+      showPlaceholder(title);
+    };
+    img.src = src;
+  }else{
+    showPlaceholder(title);
+  }
+  modal.classList.add("open");
+}
+
+function showPlaceholder(title){
+  modalBody.innerHTML = "";
+  const div = document.createElement("div");
+  div.className = "placeholder";
+  div.textContent = `${title}（画像未設定：imgフォルダに写真を追加）`;
+  modalBody.appendChild(div);
+}
+
+modalClose.addEventListener("click", ()=>modal.classList.remove("open"));
+modal.addEventListener("click", e=>{
+  if(e.target===modal) modal.classList.remove("open");
+});
+
+contentEl.addEventListener("click", e=>{
+  const btn = e.target.closest(".btn-ill");
+  if(!btn) return;
+  openModal(btn.dataset.name, btn.dataset.img);
+});
+
+/* 初期描画 */
+switchDay("day1");
+
+/* PWA：Service Worker 登録 */
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("service-worker.js")
+    .then(()=>console.log("Service Worker registered"))
+    .catch(err=>console.log("SW registration failed",err));
+}
+</script>
+</body>
+</html>
