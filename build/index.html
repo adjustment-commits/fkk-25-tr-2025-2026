@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>強化期トレーニング — 社会人硬式27歳パワーヒッター</title>
+<title>FKK#25 Ryuki Makita｜強化期トレーニング</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0a7">
 <link rel="apple-touch-icon" sizes="192x192" href="../img/icon-192.png">
@@ -25,61 +25,115 @@ body{
   color:var(--ink);
 }
 header{
-  position:sticky;top:0;z-index:10;
-  background:#fff;border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#fff;
+  border-bottom:1px solid var(--line);
 }
 .header-inner{
-  max-width:1120px;margin:auto;
+  max-width:1120px;
+  margin:auto;
   padding:10px 16px;
-  display:flex;justify-content:space-between;gap:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
 }
 h1{font-size:18px;margin:0}
 .sub{font-size:12px;color:var(--muted)}
 .tabs{
-  max-width:1120px;margin:auto;
+  max-width:1120px;
+  margin:auto;
   padding:8px 16px;
-  display:flex;flex-wrap:wrap;gap:8px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 }
 .tab{
   border-radius:999px;
   border:1px solid var(--line);
   padding:6px 10px;
-  background:#fff;font-size:12px;
-  cursor:pointer;color:var(--muted);
+  background:#fff;
+  font-size:12px;
+  cursor:pointer;
+  color:var(--muted);
 }
-.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tab.active{
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+}
 main{
-  max-width:1120px;margin:auto;
+  max-width:1120px;
+  margin:auto;
   padding:0 16px 24px;
 }
 section{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:12px;
-  padding:14px;margin-top:12px;
+  padding:14px;
+  margin-top:12px;
 }
 h2{font-size:15px;margin:0 0 8px}
-.ex-list{display:flex;flex-direction:column;gap:8px}
-.ex{background:#fafafa;border-radius:10px;padding:8px 10px;border:1px solid rgba(0,0,0,.06)}
-.ex-head{display:flex;justify-content:space-between;gap:8px}
-.ex-name{font-weight:600;color:var(--accent);font-size:13px}
-.ex-meta{font-size:11px;color:var(--muted)}
-.ex-desc{font-size:11px;line-height:1.7}
-.btn{border-radius:999px;border:1px solid var(--line);padding:4px 8px;font-size:10px;background:#fff;cursor:pointer}
+.ex-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.ex{
+  background:#fafafa;
+  border-radius:10px;
+  padding:8px 10px;
+  border:1px solid rgba(0,0,0,.06);
+}
+.ex-head{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+}
+.ex-name{
+  font-weight:600;
+  color:var(--accent);
+  font-size:13px;
+}
+.ex-meta{
+  font-size:11px;
+  color:var(--muted);
+}
+.ex-desc{
+  font-size:11px;
+  line-height:1.7;
+}
+.btn{
+  border-radius:999px;
+  border:1px solid var(--line);
+  padding:4px 8px;
+  font-size:10px;
+  background:#fff;
+  cursor:pointer;
+}
 .modal{
-  position:fixed;inset:0;
+  position:fixed;
+  inset:0;
   background:rgba(0,0,0,.45);
-  display:none;align-items:center;justify-content:center;
+  display:none;
+  align-items:center;
+  justify-content:center;
 }
 .modal.open{display:flex}
 .modal-card{
-  background:#fff;border-radius:12px;
-  width:min(92vw,760px);padding:10px;
+  background:#fff;
+  border-radius:12px;
+  width:min(92vw,760px);
+  padding:10px;
 }
 .placeholder{
   border:1px dashed var(--line);
-  padding:24px;text-align:center;
-  font-size:12px;color:var(--muted);
+  padding:24px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -87,8 +141,11 @@ h2{font-size:15px;margin:0 0 8px}
 <header>
   <div class="header-inner">
     <div>
-      <h1>強化期トレーニングプログラム</h1>
-      <p class="sub">ムーブメント×ウエイト×ロードワーク／滑走と回旋の再現性</p>
+      <h1>FKK#25 Ryuki Makita｜強化期トレーニング</h1>
+      <p class="sub">
+        週2ムーブメント（自走）＋週4ウエイト（電動）＋晴天時ロードワーク<br>
+        テーマ：骨盤滑走／分離／再統合
+      </p>
     </div>
   </div>
   <div class="tabs" id="tabs"></div>
@@ -102,139 +159,119 @@ h2{font-size:15px;margin:0 0 8px}
 </div>
 <script>
 const PROGRAM = [
+/* ---------------- Day1 ---------------- */
 {
   id:"day1",
-  title:"Day1｜ムーブメントA（滑走×回旋）",
-  type:"movement",
+  title:"Day1｜ムーブメントA（下肢滑走）",
   warmup:[
     {
       name:"呼吸＋トライポッドマーチ",
       sets:"2",
       reps:"60秒",
       load:"自重",
-      cue:"肋骨を吐きで下げ、足底3点を保ったまま交互に踵を浮かす。",
+      cue:"肋骨を吐きで下げ、足底3点を保ったまま左右交互に踵を浮かす。",
       img:"../img/build/wu-tripod-march.jpg"
     }
   ],
   drills:[
-    {
-      name:"スライドボード・並進スプリット",
-      sets:"3",
-      reps:"各側5回",
-      load:"自重",
-      cue:"骨盤を水平に滑らせ、支持脚で床を捕まえ続ける。",
-      img:"../img/build/d1-sb-split.jpg"
-    },
-    {
-      name:"レッドコード（後脚）スプリット回旋",
-      sets:"3",
-      reps:"各側5回",
-      load:"自重",
-      cue:"後脚をコードにかけ、前脚支持で骨盤→胸郭の順に回旋。",
-      img:"../img/build/d1-rc-split.jpg"
-    },
-    {
-      name:"ウォーターバッグ・横移動キャリー",
-      sets:"3",
-      reps:"20m",
-      load:"WB",
-      cue:"重心を横に移しながら上半身は静止。",
-      img:"../img/build/d1-wb-carry.jpg"
-    },
-    {
-      name:"プレート・カウンターローテーション",
-      sets:"3",
-      reps:"各側6回",
-      load:"10kg",
-      cue:"骨盤固定で胸郭のみ逆回旋。",
-      img:"../img/build/d1-plate-rot.jpg"
-    },
-    {
-      name:"バンド・ヒップドライブ",
-      sets:"3",
-      reps:"6回",
-      load:"バンド",
-      cue:"並進方向へ骨盤を薄く滑らせる。",
-      img:"../img/build/d1-band-drive.jpg"
-    },
-    {
-      name:"自走式トレッドミル滑走",
-      sets:"4",
-      reps:"20秒",
-      load:"自走",
-      cue:"接地音を消し、骨盤が前へ流れ続ける。",
-      img:""
-    }
+    {name:"スライドボード・並進スプリット",sets:"3",reps:"各側5回",load:"自重",cue:"骨盤を水平に前方へ滑らせ、支持脚で床を捕まえ続ける。"},
+    {name:"レッドコード（後脚）スプリット回旋",sets:"3",reps:"各側5回",load:"自重",cue:"後脚をコードに掛け、前脚支持で骨盤→胸郭の順に回旋。"},
+    {name:"ウォーターバッグ・横移動キャリー",sets:"3",reps:"20m",load:"WB",cue:"重心のみ横移動、上半身は静止。"},
+    {name:"プレート・カウンターローテーション",sets:"3",reps:"各側6回",load:"10kg",cue:"骨盤固定、胸郭のみ逆回旋。"},
+    {name:"バンド・ヒップドライブ",sets:"3",reps:"6回",load:"バンド",cue:"骨盤を薄く前方へ滑らせる。"},
+    {name:"自走式トレッドミル滑走",sets:"4",reps:"20秒",load:"自走",cue:"接地音を消し、骨盤が前へ流れ続ける。"}
   ]
 },
 
+/* ---------------- Day2 ---------------- */
+{
+  id:"day2",
+  title:"Day2｜上半身ウエイト（押し引き）",
+  warmup:[
+    {name:"リブケージブリージング",sets:"1",reps:"5呼吸",load:"自重",cue:"吐きで肋骨を下げる。"},
+    {name:"トライポッドマーチ",sets:"1",reps:"60秒",load:"自重",cue:"足底3点を保つ。"}
+  ],
+  drills:[
+    {name:"ベンチプレス",sets:"4",reps:"4回",load:"75–80%1RM",cue:"肩甲骨下制・足底ドライブ。"},
+    {name:"プルアップ／ラットプル",sets:"4",reps:"6–8回",load:"自重〜加重",cue:"肩甲骨主導で引く。"},
+    {name:"インクラインDBプレス",sets:"3",reps:"8回",load:"RPE7",cue:"シート30°、やや斜め前方へ挙上。"},
+    {name:"ワンアームDBロウ",sets:"3",reps:"10回",load:"30–45kg",cue:"骨盤固定、背中で引く。"}
+  ]
+},
+
+/* ---------------- Day3 ---------------- */
 {
   id:"day3",
   title:"Day3｜ムーブメントB（回旋連動）",
-  type:"movement",
   warmup:[
-    {
-      name:"呼吸＋トライポッドマーチ",
-      sets:"2",
-      reps:"60秒",
-      load:"自重",
-      cue:"足底と肋骨を同時に静める。",
-      img:"../img/build/wu-tripod-march.jpg"
-    }
+    {name:"呼吸＋トライポッドマーチ",sets:"2",reps:"60秒",load:"自重",cue:"足底と肋骨を同時に静める。"}
   ],
   drills:[
-    {
-      name:"シャフト担ぎ・逆回旋導入",
-      sets:"3",
-      reps:"各側5回",
-      load:"20kg",
-      cue:"骨盤→胸郭→肩甲帯の順で解放。",
-      img:"../img/build/d3-shaft.jpg"
-    },
-    {
-      name:"レッドコード（前脚）ラテラル回旋",
-      sets:"3",
-      reps:"各側5回",
-      load:"自重",
-      cue:"踏み出し脚支持で横回旋。",
-      img:"../img/build/d3-rc-front.jpg"
-    },
-    {
-      name:"スライドボード・回旋ブレーキ",
-      sets:"3",
-      reps:"各側4回",
-      load:"自重",
-      cue:"並進後に胸郭で制動。",
-      img:"../img/build/d3-sb-brake.jpg"
-    },
-    {
-      name:"WB・ローテーショナルキャリー",
-      sets:"3",
-      reps:"20m",
-      load:"WB",
-      cue:"回旋トルクを体幹で受ける。",
-      img:"../img/build/d3-wb.jpg"
-    },
-    {
-      name:"バンド・カウンターローテーション",
-      sets:"3",
-      reps:"6回",
-      load:"バンド",
-      cue:"骨盤固定、胸郭のみ回旋。",
-      img:"../img/build/d3-band.jpg"
-    },
-    {
-      name:"自走式トレッドミル回旋意識走",
-      sets:"4",
-      reps:"20秒",
-      load:"自走",
-      cue:"遊脚外旋で滑走を作る。",
-      img:""
-    }
+    {name:"シャフト担ぎ・逆回旋導入",sets:"3",reps:"各側5回",load:"20kg",cue:"骨盤→胸郭→肩甲帯の順で解放。"},
+    {name:"レッドコード（前脚）ラテラル回旋",sets:"3",reps:"各側5回",load:"自重",cue:"踏み出し脚支持で横回旋。"},
+    {name:"スライドボード・回旋ブレーキ",sets:"3",reps:"各側4回",load:"自重",cue:"並進後に胸郭で制動。"},
+    {name:"WBローテーショナルキャリー",sets:"3",reps:"20m",load:"WB",cue:"回旋トルクを体幹で受ける。"},
+    {name:"自走式トレッドミル回旋走",sets:"4",reps:"20秒",load:"自走",cue:"遊脚外旋で滑走を作る。"}
+  ]
+},
+
+/* ---------------- Day4 ---------------- */
+{
+  id:"day4",
+  title:"Day4｜下半身ウエイト（MAX寄り）",
+  warmup:[
+    {name:"ブリージング",sets:"1",reps:"5呼吸",load:"自重",cue:"肋骨−骨盤同期。"}
+  ],
+  drills:[
+    {name:"バックスクワット",sets:"5",reps:"3回",load:"80–85%1RM",cue:"骨盤先行で立ち上がる。"},
+    {name:"RDL",sets:"4",reps:"6回",load:"70–75%",cue:"ハムの伸張反射。"},
+    {name:"HEXデッド（ロー）",sets:"3",reps:"4回",load:"75–85%",cue:"地面を後ろへ蹴る。"}
+  ]
+},
+
+/* ---------------- Day5 ---------------- */
+{
+  id:"day5",
+  title:"Day5｜全身パワーウエイト",
+  warmup:[
+    {name:"ブリージング＋マーチ",sets:"1",reps:"60秒",load:"自重",cue:"呼吸と足底同期。"}
+  ],
+  drills:[
+    {name:"ハングクリーン",sets:"5",reps:"3回",load:"65–75%",cue:"骨盤滑走で伸展。"},
+    {name:"フロントSQ",sets:"4",reps:"4回",load:"70–80%",cue:"胸郭保持。"},
+    {name:"ベントロウ",sets:"4",reps:"6回",load:"70%",cue:"体幹固定。"}
+  ]
+},
+
+/* ---------------- Day6 ---------------- */
+{
+  id:"day6",
+  title:"Day6｜予備ウエイト（補強）",
+  warmup:[
+    {name:"ブリージング",sets:"1",reps:"5呼吸",load:"自重",cue:"リセット。"}
+  ],
+  drills:[
+    {name:"ノルディック（補助）",sets:"3",reps:"4–6回",load:"自重",cue:"ハム制御。"},
+    {name:"ヒップスラスト",sets:"3",reps:"10回",load:"60–70%",cue:"臀筋主導。"},
+    {name:"フェイスプル",sets:"3",reps:"12回",load:"中負荷",cue:"肩甲帯後面。"}
+  ]
+},
+
+/* ---------------- OUTDOOR ---------------- */
+{
+  id:"outdoor",
+  title:"OUTDOOR｜晴天時ロードワーク",
+  warmup:[
+    {name:"ジョグ＋動的ストレッチ",sets:"1",reps:"10分",load:"自重",cue:"体温上昇。"}
+  ],
+  drills:[
+    {name:"500mレペ",sets:"4–6本",reps:"500m",load:"1'50–2'00",cue:"頭痛手前で止める。"},
+    {name:"50mストライド",sets:"8–10本",reps:"50m",load:"70–80%",cue:"滑走感確認。"}
   ]
 }
 ];
 
+/* ---- UI制御 ---- */
 const tabsEl=document.getElementById("tabs");
 const contentEl=document.getElementById("content");
 const modal=document.getElementById("modal");
@@ -258,8 +295,8 @@ function switchDay(id){
 
 function renderDay(day){
   contentEl.innerHTML="";
-  if(day.warmup)contentEl.appendChild(section("ウォームアップ",day.warmup));
-  if(day.drills)contentEl.appendChild(section("メインエクササイズ",day.drills));
+  contentEl.appendChild(section("ウォームアップ",day.warmup));
+  contentEl.appendChild(section("メインエクササイズ",day.drills));
 }
 
 function section(title,list){
@@ -273,7 +310,6 @@ function section(title,list){
     c.innerHTML=`
       <div class="ex-head">
         <div class="ex-name">${ex.name}</div>
-        <button class="btn" data-img="${ex.img}">🖼</button>
       </div>
       <div class="ex-meta">セット:${ex.sets}／回数:${ex.reps}／負荷:${ex.load}</div>
       <div class="ex-desc">${ex.cue}</div>`;
@@ -282,16 +318,6 @@ function section(title,list){
   s.appendChild(w);
   return s;
 }
-
-contentEl.onclick=e=>{
-  const b=e.target.closest("button[data-img]");
-  if(!b)return;
-  modalBody.innerHTML=b.dataset.img
-    ? `<img src="${b.dataset.img}" style="width:100%">`
-    : `<div class="placeholder">画像未設定</div>`;
-  modal.classList.add("open");
-};
-modalClose.onclick=()=>modal.classList.remove("open");
 
 switchDay("day1");
 </script>
