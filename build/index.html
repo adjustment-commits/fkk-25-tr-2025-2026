@@ -886,7 +886,6 @@ const PROGRAM = [
         load:"自重",
         level:"★☆☆",
         cue:"ゆっくりジョグで体温を上げ、股関節・足首・胸郭を中心に動的ストレッチ。<br>息が弾む手前まで。",
-        img:"../img/build/out-01-warmup.jpg"
       }
     ],
     drills:[
@@ -897,7 +896,6 @@ const PROGRAM = [
         load:"目標 1分50秒〜2分00秒（RPE7）",
         level:"★★☆",
         cue:"1〜2本目は余裕、3本目以降で少しだけペースアップ。<br>HR180近くで“頭が熱くなる一歩手前”まで。",
-        img:"../img/build/out-11-500m.jpg"
       },
       {
         name:"メインB：50mストライド",
@@ -906,7 +904,6 @@ const PROGRAM = [
         load:"最大の70〜80％",
         level:"★★☆",
         cue:"スタートはリラックスして加速し、30〜40m付近で滑走感のフォームを確認。<br>完全ダッシュにはしない。",
-        img:"../img/build/out-12-stride.jpg"
       },
       {
         name:"オプション：800m×3（試合前コンディション）",
@@ -915,7 +912,6 @@ const PROGRAM = [
         load:"目標 3分00秒前後（RPE6〜7）",
         level:"★★☆",
         cue:"フォーム維持を最優先。HR170前後まで。<br>追い込みすぎて頭痛が出る手前で止める。",
-        img:"../img/build/out-13-800m.jpg"
       }
     ],
     conditioning:{
@@ -955,6 +951,7 @@ function switchDay(id){
 
 function renderDay(day){
   if(!day) return;
+  currentDayType = day.type;
   contentEl.innerHTML = "";
 
   const headSec = document.createElement("section");
@@ -1016,12 +1013,18 @@ function buildExerciseSection(title, list){
       tags.appendChild(t);
     }
 
-    const btn = document.createElement("button");
-    btn.className = "btn btn-ill";
-    btn.textContent = "🖼 イラスト";
-    btn.dataset.name = ex.name || ex.ex || "";
-    btn.dataset.img = ex.img || "";
-    tags.appendChild(btn);
+    /* ===== ここが重要 =====
+       road（ロードワーク）の場合は
+       画像ボタンを一切出さない
+    ======================= */
+    if(currentDayType !== "road"){
+      const btn = document.createElement("button");
+      btn.className = "btn btn-ill";
+      btn.textContent = "🖼 イラスト";
+      btn.dataset.name = ex.name || ex.ex || "";
+      btn.dataset.img = ex.img || "";
+      tags.appendChild(btn);
+    }
 
     head.appendChild(tags);
     card.appendChild(head);
@@ -1043,7 +1046,6 @@ function buildExerciseSection(title, list){
   sec.appendChild(wrap);
   return sec;
 }
-
 function labelType(type){
   if(type==="movement") return "ムーブメント＋自走式";
   if(type==="weight") return "ウエイト＋電動式";
