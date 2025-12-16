@@ -281,6 +281,7 @@ align-items:flex-start;
 </div>
 
 <script>
+let currentDayType = null;
 /* --------------------------------------------------
    プログラム定義
 -------------------------------------------------- */
@@ -365,7 +366,7 @@ const PROGRAM = [
         load:"シャフト（10kg）",
         level:"★★☆",
         cue:"シャフト担ぎ。<br>下降中に肋骨逆回旋→軸足回旋。<br>立ち上がりで骨盤を前に滑らせる。",
-        img:"../img/build/d1-11-shaft-splitrounge-rot.jpg"
+        img:"../img/build/d1-11-shaft-splitlunge-rot.jpg"
       },
       {
         name:"後脚レッドコード・ブルガリアン回旋",
@@ -392,7 +393,7 @@ const PROGRAM = [
         load:"バンド（横引き抵抗）",
         level:"★★☆",
         cue:"骨盤を横に引かれた状態でスプリットランジ。<br>立ち上がりで骨盤を滑らせて戻す。",
-        img:"../img/build/d1-14-band-splitraunge-slide.jpg"
+        img:"../img/build/d1-14-band-splitlunge-slide.jpg"
       },
       {
         name:"プレートホールド・ブルガリアンテンポ",
@@ -403,6 +404,15 @@ const PROGRAM = [
         cue:"プレート胸前。3秒下降。<br>時間をかけても肋骨と骨盤の分離を維持。",
         img:"../img/build/d1-15-plate-bulgarian-tempo.jpg"
       },
+      {
+       name:"パワーポジション・MB入れ替え回旋",
+       sets:"2",
+       reps:"各側8〜10回",
+       load:"MB またはプレート",
+       level:"★★☆",
+       cue:"パワーポジションで左脚支持。<br>MB（またはプレート）を左脚横で保持し、胸郭は右回旋。<br>胸郭を左へ回旋すると同時に、MBを右肩上へ素早く入れ替える。<br>反対側も同様に行う。",
+       img:"../img/build/d1-16-powerpos-mb-switch.jpg"
+     },
     ],
     conditioning:{
       name:"自走式トレッドミル・滑走インターバル",
@@ -410,7 +420,7 @@ const PROGRAM = [
       detail:"各本 90〜120秒ウォーク。<br>接地音を消し、骨盤が前へ流れ続けることだけを守る。"
     }
   },
-
+        
   {
     id:"day2",
     title:"Day2｜上半身ウエイト①（押し引き）＋電動式",
@@ -618,6 +628,16 @@ const PROGRAM = [
         level:"★★☆",
         cue:"シャフトを担いでバッティングスタンス。<br>スタートは肋骨回旋。<br>逆回旋と同時に軸足が抜ける。<br>肩甲帯がシャフトをスイング",
         img:"../img/build/d3-16-band-lateral-drive.jpg"
+      },
+
+        {
+        name:"スプリット・MB入れ替え回旋",
+        sets:"2",
+        reps:"各側8〜10回",
+        load:"MB またはプレート",
+        level:"★★☆",
+        cue:"スプリットポジション（左脚前）。<br>MB（またはプレート）を左脚横で保持し、胸郭は右回旋。<br>胸郭を左へ回旋すると同時に、MBを右肩上へ入れ替える。<br>骨盤は流しすぎず、支持脚で地面を捉え続ける。<br>反対側も同様に行う。",
+        img:"../img/build/d3-17-split-mb-switch.jpg"
       }
     ],
     conditioning:{
@@ -822,7 +842,7 @@ const PROGRAM = [
         load:"自重",
         level:"★☆☆",
         cue:"足底3点を常に感じたまま交互にカーフレイズ。",
-        img:"../img/build/wu-shingle-calf.jpg"
+        img:"../img/build/wu-single-calf.jpg"
       }
     ],
     drills:[
